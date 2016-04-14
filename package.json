@@ -1,0 +1,30 @@
+{
+  "name": "missing-elem-server",
+  "version": "1.0.0",
+  "description": "Using POST commands with an express server, it returns a missing element",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monotkate/missing-elem-server.git"
+  },
+  "keywords": [
+    "express",
+    "POST"
+  ],
+  "author": "Miranda Van Minnen",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/monotkate/missing-elem-server/issues"
+  },
+  "homepage": "https://github.com/monotkate/missing-elem-server#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "body-parser": "^1.15.0",
+    "angular": "^1.5.3",
+    "jquery": "^1.12.3",
+    "angular-ui-router": "^0.2.18"
+  }
+}
