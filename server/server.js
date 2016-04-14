@@ -6,15 +6,12 @@ var app            =        express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//get the html file
-// app.get('/',function(req,res){
-//     res.sendfile("index.html");
-// });
-
+//Processing Data Post
 app.post('/data',function(req,res){
-    var array=req.query.array;
-    var lowerBound=req.query.lowerBound;
-    var upperBound=req.query.upperBound;
+    var array=[];
+    array = req.body.array;
+    var lowerBound=req.body.lowerBound;
+    var upperBound=req.body.upperBound;
     console.log(findMissing(array, lowerBound, upperBound));
     res.end("yes");
 });
@@ -25,5 +22,18 @@ app.listen(8080,function(){
 });
 
 var findMissing = function(array, lowerBound, upperBound) {
-    return array;
+    var testArray = [];
+    var length = upperBound - lowerBound;
+
+    for(var i = 0; i < array.length; i++) {
+        if(array[i] !== ' ')
+            testArray[array[i]] = true;
+    };
+
+    for(var i = lowerBound; i < testArray.length; i++) {
+        if(typeof testArray[i] === 'undefined') {
+            return i;
+        }
+    };
+    return null;
 };
