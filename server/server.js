@@ -6,13 +6,19 @@ var app            =        express();
 //app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.set('port', (process.env.PORT || 8080));
+
 //Processing Data Post
 app.post('/data',function(req,res){
     var array = req.body.array;
-    var lowerBound=req.body.lowerBound;
-    var upperBound=req.body.upperBound;
+    var lowerBound = req.body.lowerBound;
+    var upperBound = req.body.upperBound;
     var missingElem = findMissing(array, lowerBound, upperBound).toString();
-    res.end(missingElem);
+    var responseObj = {
+        "status": "Okay",
+        "result": missingElem
+    };
+    res.status(200).json(responseObj);
 
 });
 
