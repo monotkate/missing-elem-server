@@ -8,8 +8,8 @@ app.use(bodyParser.json());
 
 app.set('port', (process.env.PORT || 8080));
 
-app.get('/', function(request, response) {
-  response.render('index.html');
+app.get('/', function(req, res) {
+    res.sendfile("index.html");
 });
 
 //Processing Data Post
