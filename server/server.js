@@ -1,7 +1,6 @@
 var express        =        require("express");
 var bodyParser     =        require("body-parser");
 var app            =        express();
-var cors           =        require("cors");
 
 //Here we are configuring express to use body-parser as middle-ware.
 //app.use(bodyParser.urlencoded({ extended: false }));
