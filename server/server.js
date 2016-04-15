@@ -8,11 +8,15 @@ app.use(bodyParser.json());
 
 //Processing Data Post
 app.post('/data',function(req,res){
-    var array=[];
-    array = req.body.array;
+    var array = req.body.array;
     var lowerBound=req.body.lowerBound;
     var upperBound=req.body.upperBound;
     console.log(findMissing(array, lowerBound, upperBound));
+    res.end("yes");
+});
+
+app.post('/stuff', function(req,res) {
+    console.log(req.body);
     res.end("yes");
 });
 
@@ -30,10 +34,10 @@ var findMissing = function(array, lowerBound, upperBound) {
             testArray[array[i]] = true;
     };
 
-    for(var i = lowerBound; i < testArray.length; i++) {
+    for(var i = lowerBound; i < upperBound+1; i++) {
         if(typeof testArray[i] === 'undefined') {
             return i;
         }
     };
-    return null;
+    return "Isn't Missing Anything";
 };
