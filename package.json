@@ -22,9 +22,6 @@
   "homepage": "https://github.com/monotkate/missing-elem-server#readme",
   "dependencies": {
     "express": "^4.13.4",
-    "body-parser": "^1.15.0",
-    "angular": "^1.5.3",
-    "jquery": "^1.12.3",
-    "angular-ui-router": "^0.2.18"
+    "body-parser": "^1.15.0"
   }
 }
