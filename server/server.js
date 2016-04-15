@@ -3,7 +3,7 @@ var bodyParser     =        require("body-parser");
 var app            =        express();
 
 //Here we are configuring express to use body-parser as middle-ware.
-app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //Processing Data Post
@@ -11,13 +11,9 @@ app.post('/data',function(req,res){
     var array = req.body.array;
     var lowerBound=req.body.lowerBound;
     var upperBound=req.body.upperBound;
-    console.log(findMissing(array, lowerBound, upperBound));
-    res.end("yes");
-});
+    var missingElem = findMissing(array, lowerBound, upperBound).toString();
+    res.end(missingElem);
 
-app.post('/stuff', function(req,res) {
-    console.log(req.body);
-    res.end("yes");
 });
 
 //Listening for Server
@@ -30,8 +26,7 @@ var findMissing = function(array, lowerBound, upperBound) {
     var length = upperBound - lowerBound;
 
     for(var i = 0; i < array.length; i++) {
-        if(array[i] !== ' ')
-            testArray[array[i]] = true;
+        testArray[array[i]] = true;
     };
 
     for(var i = lowerBound; i < upperBound+1; i++) {
