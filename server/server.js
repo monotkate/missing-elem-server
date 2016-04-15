@@ -8,6 +8,10 @@ app.use(bodyParser.json());
 
 app.set('port', (process.env.PORT || 8080));
 
+app.get('/', function(request, response) {
+  response.render('index.html');
+});
+
 //Processing Data Post
 app.post('/data',function(req,res){
     var array = req.body.array;
@@ -23,8 +27,8 @@ app.post('/data',function(req,res){
 });
 
 //Listening for Server
-app.listen(8080,function(){
-    console.log("Started on PORT 8080");
+app.listen(app.get('port'),function(){
+    console.log("Started on port ", app.get('port'));
 });
 
 var findMissing = function(array, lowerBound, upperBound) {
